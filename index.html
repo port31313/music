@@ -1,1 +1,21 @@
+<script>
+const music = document.getElementById("bgMusic");
 
+// Try autoplay
+music.play().catch(() => {
+    // Wait until user interacts
+    const start = () => {
+        music.play();
+        document.removeEventListener("click", start);
+        document.removeEventListener("keydown", start);
+        document.removeEventListener("touchstart", start);
+    };
+
+    document.addEventListener("click", start);
+    document.addEventListener("keydown", start);
+    document.addEventListener("touchstart", start);
+});
+</script>
+
+</body>
+</html>
